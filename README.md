@@ -3,13 +3,12 @@
 ***
 
 ## Dependency
-To install the required packages, first create and activate a `fantastic_reward` env in conda.
+To install the required packages, first create and activate a `fantastic_reward` environment in conda.
 Then execute the following command:
 ```angular2html
 bash install_packages.sh
 ```
 
-***
 ## Experiments
 
 ### Data Setup
@@ -35,16 +34,16 @@ where `${EXP_IDX}` is again the index of the experiment.
 
 To facilitate reproducibility, we release a checkpoint for each of the variant 
 RewardNet+GS $N = 3,\Phi=(\cdot)^1$ and RewardMLE+GS $N = 5,\Phi=\exp(\cdot)$ in Table 1 of the paper.
-The released checkpoints are both trained under random seed `999` of the tested five seeds `(111 333 555 777 999)`.
+The released checkpoints are both trained under the random seed `999` of the tested five seeds `(111 333 555 777 999)`.
 
 To evaluate the checkpoints, please try the following steps.
 Here `Exp1` corresponds to the variant of RewardNet+GS $N =3,\Phi=(\cdot)^1$ and `Exp2` for RewardMLE+GS $N = 5,\Phi=\exp(\cdot)$.
 
-1. Download and unzip the checkpoints from [here](https://drive.google.com/file/d/1EUIno8hq94smUqBBnzr_m8svMWKKH7P5/view?usp=sharing). Put the resulting folders into a  folder named `experiments`.
+1. Download and unzip the checkpoints from [here](https://drive.google.com/file/d/1WUYU8DLiF4v8gQWltY_y_V1FXEF5igtx/view?usp=sharing).
 2. Download and unzip the processed data from [here](https://drive.google.com/file/d/1fwLK62U38B3pxYxzrycGyEwt4_AFRv7l/view?usp=sharing). Put the resulting folders into the folder `damd_multiwoz`.
 3. Try the following command
 ```angular2html
-python train.py --model_path "Exp${EXP_IDX}/all_sd999/" \
+python train.py --model_path "experiments/Exp${EXP_IDX}/all_sd999/" \
     --mode 'test' --context_window 2 --pretrained_checkpoint bart-large-cnn \
     --back_bone bart --cfg seed=999 cuda_device=0 batch_size=8 early_stop_count=7 \
     --caspi_returns_file="fn_Gs_10_0.0_resp_soft.json" --caspi_wt=5. \
