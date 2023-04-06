@@ -52,11 +52,22 @@ python train.py --model_path "experiments/Exp${EXP_IDX}/all_sd999/" \
 ```
 where `${EXP_IDX}` should be replaced by `1` or `2`.
 
+### Standardized Evaluation Results
+The following table shows the standardized evaluation results of our ``RewardNet+GS'' model. 
+Detailed numbers are provided in `Example_generation/result_standard_eval.json`. 
+
+| BLEU | Inform | Success | Combined Score | Av. len. | CBE  | #uniq. words | #uniq. 3-grams |
+|------|--------|---------|----------------|----------|------|--------------|----------------|
+| 17.6 | 87.6   | 81.5    | 102.2          | 13.22    | 1.99 | 423          | 3942           |
+
+
+Examples of generated dialogues on the test-split of MultiWOZ2.0 can be found at `Example_generation/gen_test_formatted.json`.
+
 
 ## Acknowledgement
 This codebase builds on the following codebases and datasets:
 * [**CASPI**](https://github.com/salesforce/CASPI).
 * [**MinTL**](https://github.com/zlinao/MinTL).
 * [**DAMD**](https://gitlab.com/ucdavisnlp/damd-multiwoz).
-* [**Multiwoz2.0**](https://github.com/budzianowski/multiwoz).
-* [**ConvLab Multiwoz2.0 annotation**](https://github.com/ConvLab/ConvLab/tree/master/data/multiwoz/annotation).
+* [**MultiWOZ2.0**](https://github.com/budzianowski/multiwoz).
+* [**ConvLab MultiWOZ2.0 annotation**](https://github.com/ConvLab/ConvLab/tree/master/data/multiwoz/annotation).
